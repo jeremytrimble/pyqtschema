@@ -25,7 +25,7 @@ def build_example(schema: Dict, ui_schema: Dict = {}, scrollbar: bool = True):
     form.widget.on_changed.connect(lambda xxx: print(xxx))
 
     widget.show()
-    app.exec_()
+    app.exec()
 
 
 class Encoder(JSONEncoder):
