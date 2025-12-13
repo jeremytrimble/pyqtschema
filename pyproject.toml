@@ -4,6 +4,6 @@ requires = [
     "wheel",
     "jsonschema",
     "qtpy",
-    "PyQt5"
+    "PyQt6"
 ]
 build-backend = "setuptools.build_meta"
