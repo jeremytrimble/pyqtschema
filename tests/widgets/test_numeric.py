@@ -3,10 +3,12 @@ from qtpy.QtCore import Qt
 
 from pyqtschema.widgets import SpinSchemaWidget, SpinDoubleSchemaWidget, IntegerRangeSchemaWidget
 
-
 @pytest.mark.parametrize('cls', [SpinSchemaWidget, SpinDoubleSchemaWidget, IntegerRangeSchemaWidget])
 def test_text_init(cls, builder, qtbot):
-    schema = {}
+    schema = {
+        "minimum": 0,
+        "maximum": 42,
+    }
     widget = cls(schema, {}, builder)
     widget.show()
     qtbot.addWidget(widget)
@@ -14,7 +16,10 @@ def test_text_init(cls, builder, qtbot):
 
 @pytest.mark.parametrize('cls', [SpinSchemaWidget, SpinDoubleSchemaWidget, IntegerRangeSchemaWidget])
 def test_text_state_write_int(cls, builder, qtbot):
-    schema = {}
+    schema = {
+        "minimum": 0,
+        "maximum": 42,
+    }
     widget = cls(schema, {}, builder)
     widget.show()
     qtbot.addWidget(widget)
@@ -27,7 +32,10 @@ def test_text_state_write_int(cls, builder, qtbot):
 
 @pytest.mark.parametrize('cls', [SpinSchemaWidget, SpinDoubleSchemaWidget, IntegerRangeSchemaWidget])
 def test_text_state_read_int(cls, builder, qtbot):
-    schema = {}
+    schema = {
+        "minimum": 0,
+        "maximum": 42,
+    }
     widget = cls(schema, {}, builder)
     widget.show()
     qtbot.addWidget(widget)
