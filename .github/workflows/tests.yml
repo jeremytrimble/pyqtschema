@@ -20,8 +20,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install Qt dependencies (Linux)
-      if: runner.os == 'Linux'
+    - name: Install Qt5 dependencies (Linux)
+      if: runner.os == 'Linux' && contains(matrix.qt-impl, '5')
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y qtbase5-dev libqt5gui5 libgl1 libegl1 libxkbcommon-x11-0
+
+    - name: Install Qt6 dependencies (Linux)
+      if: runner.os == 'Linux' && contains(matrix.qt-impl, '6')
       run: |
         sudo apt-get update
         sudo apt-get install -y qt6-base-dev libqt6gui6t64 libgl1 libegl1 libxkbcommon-x11-0
