@@ -1,9 +1,32 @@
-[build-system]
-requires = [
-    "setuptools>=42",
-    "wheel",
-    "jsonschema",
-    "qtpy",
-    "PyQt6"
+[project]
+name = "pyqtschema"
+version = "0.2.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jsonschema>=4.25.1",
+    "pydantic>=2.12.5",
+    "pyqt6>=6.10.1",
+    "qtpy>=2.4.3",
 ]
+
+[dependency-groups]
+dev = [
+    "pyqtschema",
+    "pytest>=9.0.2",
+    "pytest-qt>=4.5.0",
+]
+
+[tool.uv.workspace]
+members = [
+    ".",
+]
+
+[tool.uv.sources]
+pyqtschema = { workspace = true }
+
+[build-system]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
+
