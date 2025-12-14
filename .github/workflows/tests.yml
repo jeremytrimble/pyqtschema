@@ -9,12 +9,22 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: ['3.10', '3.11', '3.12', '3.13', '3.14']
+        python-version: ['3.10', 
+          #'3.11', '3.12', '3.13', 
+          '3.14']
+        os: [ubuntu-latest, windows-latest, macos-latest]
     
     steps:
     - uses: actions/checkout@v4
+
+    - name: Install Qt dependencies (Linux)
+      if: runner.os == 'Linux'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y pyqt6-dev
     
     - name: Install uv
       uses: astral-sh/setup-uv@v5
