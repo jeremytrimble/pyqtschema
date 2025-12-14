@@ -1,5 +1,9 @@
 # Changelog
 
+### Version 0.3.0 (2023-05-05)
+
+* remove dependence on PyQT5
+
 ### Version 0.2.0 (2023-05-05)
 
 * use [QtPy](https://pypi.org/project/QtPy/) instead of `PyQt5`
